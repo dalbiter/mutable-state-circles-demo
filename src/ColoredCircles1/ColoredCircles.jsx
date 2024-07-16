@@ -34,6 +34,14 @@ const ColoredCircle = () => {
       ))
   }
 
+  const randomize = () => {
+    setCircles(circles => (
+      circles.map((circle, i) => (
+          {...circle, x: getRandom(), y: getRandom()}
+      ))
+  ))  
+  }
+
   return (
     <div>
       <ColorButtons
@@ -44,6 +52,7 @@ const ColoredCircle = () => {
         addCircle={addCircle}
         options={["orange", "magenta", "teal"]}
       />
+      <button onClick={randomize}>Randomize All!</button>
       {circles.map(({ color, x, y }, idx) => (
         <Circle 
             changePosition={changePosition} 
